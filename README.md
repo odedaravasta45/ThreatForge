@@ -308,4 +308,5 @@ Our strongest differentiator is the genuine **IBM Bob MCP integration**. Bob can
 
 The dashboard can run a simulated live feed when no external SIEM/EDR connection is available. With **LIVE · ON**, it calls `POST /api/v1/demo/live-tick` every 6 seconds. Each tick generates events from SIEM, EDR, Network Sensor and Threat Intel, runs ML inference for every incoming alert, correlates related events, and refreshes dashboard statistics. This is simulated data for demonstration; real integrations can use the existing `/api/v1/alerts/ingest` endpoint.
 #   T h r e a t F o r g e  
+ #   T h r e a t F o r g e  
  
