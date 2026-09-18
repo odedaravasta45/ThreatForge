@@ -1,0 +1,51 @@
+{
+  "model": "XGBClassifier",
+  "algorithm": "XGBoost",
+  "probability_calibration": "temperature_scaling_conservative",
+  "temperature": 1.5,
+  "hyperparameters": {
+    "n_estimators": 180,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "min_child_weight": 3,
+    "subsample": 0.82,
+    "colsample_bytree": 0.82,
+    "reg_alpha": 0.2,
+    "reg_lambda": 2.0
+  },
+  "cv_f1_selected": 0.9854,
+  "feature_count": 167,
+  "training_samples": 2309,
+  "validation_samples": 496,
+  "test_samples": 495,
+  "classes": [
+    "BENIGN",
+    "THREAT"
+  ],
+  "priority_classes": [
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "threat_scenarios": 44,
+  "cross_validation_f1_mean": 0.9854,
+  "cross_validation_f1_std": 0.0048,
+  "validation": {
+    "accuracy": 0.9637,
+    "f1": 0.9761
+  },
+  "test": {
+    "accuracy": 0.9838,
+    "precision": 0.9845,
+    "recall": 0.9948,
+    "f1": 0.9896
+  },
+  "generalization_gap": 0.0026,
+  "probability_range_test": {
+    "min": 0.028,
+    "max": 0.9909,
+    "median": 0.9681
+  },
+  "note": "Synthetic broad cyber-alert corpus. XGBoost probabilities are temperature-scaled (conservative) on validation data; test set is untouched. Metrics are demo validation only, not real-world SOC accuracy."
+}
