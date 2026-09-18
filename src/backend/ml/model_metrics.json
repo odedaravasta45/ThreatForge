@@ -1,0 +1,44 @@
+{
+  "model": "XGBClassifier",
+  "algorithm": "XGBoost",
+  "hyperparameters": {
+    "n_estimators": 180,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "min_child_weight": 2,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.5
+  },
+  "cv_f1_selected": 0.992,
+  "feature_count": 167,
+  "training_samples": 1693,
+  "validation_samples": 364,
+  "test_samples": 363,
+  "classes": [
+    "BENIGN",
+    "THREAT"
+  ],
+  "priority_classes": [
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "threat_scenarios": 44,
+  "cross_validation_f1_mean": 0.992,
+  "cross_validation_f1_std": 0.0044,
+  "validation": {
+    "accuracy": 0.989,
+    "f1": 0.9929
+  },
+  "test": {
+    "accuracy": 0.9807,
+    "precision": 0.9892,
+    "recall": 0.9857,
+    "f1": 0.9875
+  },
+  "generalization_gap": 0.0083,
+  "note": "Synthetic broad cyber-alert corpus for demo validation; not a claim of real-world SOC accuracy."
+}
