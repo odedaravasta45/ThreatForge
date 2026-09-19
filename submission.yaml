@@ -17,7 +17,7 @@ team:
       email: "d25ce166@charusat.edu.in"
 
 submission:
-  title: "ThreatLens AI — AI-Powered Threat Intelligence Command Center"
+  title: "ThreatForge — AI-Powered Threat Intelligence Correlation & Alert Prioritisation Assistant"
 
   problem_statement: >
     Security teams receive large numbers of alerts from multiple sources and
@@ -26,19 +26,21 @@ submission:
     and quickly determine what requires immediate investigation.
 
   solution_summary: >
-    ThreatLens AI is a threat intelligence command center that ingests and
+    ThreatForge is a threat intelligence command center that ingests and
     normalises multi-source alerts, correlates related activity into incidents,
     prioritises risk, maps behaviour to MITRE ATT&CK, and generates evidence-first
-    investigation and BLUF summaries. IBM Bob is integrated through MCP tools so
-    Bob can retrieve live ThreatLens incident, alert, indicator, investigation
-    and MITRE context.
+    AI Investigation and BLUF summaries. IBM Bob is integrated through MCP tools so
+    the AI investigation workflow can retrieve live ThreatForge incident, alert,
+    indicator, investigation and MITRE context.
 
   key_features:
     - "Multi-source security alert ingestion and normalisation"
     - "Entity-aware alert correlation and incident creation"
     - "Risk and priority scoring for investigation triage"
     - "MITRE ATT&CK mapping with threat-intelligence context"
-    - "Evidence-backed investigation, BLUF reporting and IBM Bob MCP integration"
+    - "Evidence-backed AI Investigation and commander BLUF reporting"
+    - "Incident-level email/mobile notification and escalation workflow"
+    - "IBM Bob MCP integration for live analyst context"
 
   tech_stack:
     languages: ["Python", "TypeScript", "HTML", "CSS"]
@@ -50,8 +52,9 @@ submission:
   what_we_are_most_proud_of: >
     The complete evidence-to-decision workflow: multi-source alert ingestion,
     correlation, prioritisation, MITRE ATT&CK context, investigation evidence,
-    BLUF reporting and a genuine IBM Bob MCP integration that gives Bob
-    structured access to live ThreatLens security context.
+    BLUF reporting, incident-level notification/escalation, and a genuine
+    IBM Bob MCP integration that gives the AI investigation workflow structured
+    access to live ThreatForge security context.
 
   known_limitations: >
     The hackathon demo uses simulated security alert data rather than classified

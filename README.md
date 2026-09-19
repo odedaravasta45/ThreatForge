@@ -1,6 +1,6 @@
-# ThreatLens AI — AI-Powered Threat Intelligence Command Center
+# ThreatForge — AI-Powered Threat Intelligence Command Center
 
-> \\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\*ThreatLens AI\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\* is an AI-powered threat intelligence command center that correlates multi-source security alerts, separates meaningful threats from noise, prioritises incidents, maps activity to MITRE ATT\\\\\\\\\\\\\\\&CK, and produces evidence-backed investigation and BLUF summaries.
+> \\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\*ThreatForge\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\* is an AI-powered threat intelligence command center that correlates multi-source security alerts, separates meaningful threats from noise, prioritises incidents, maps activity to MITRE ATT\\\\\\\\\\\\\\\&CK, and produces evidence-backed investigation and BLUF summaries.
 
 ## 👥 Team
 
@@ -19,13 +19,13 @@ This creates alert fatigue, duplicated investigations and slower response to hig
 
 ## 💡 Solution
 
-ThreatLens AI turns fragmented alerts into a structured investigation workflow:
+ThreatForge turns fragmented alerts into a structured investigation workflow:
 
-**Multi-source Feeds → Ingestion → Normalisation → Correlation → Incident Creation → Priority Scoring → MITRE ATT\&CK → Investigation → BLUF → Recommended Actions**
+**Multi-source Feeds → Ingestion → Normalisation → Correlation → Incident Creation → Priority Scoring → MITRE ATT\&CK → AI Investigation → BLUF → Recommended Actions → Incident Notification**
 
 The FastAPI backend provides the data and correlation services, while the React command center visualises live alerts, incidents, threat intelligence, MITRE coverage, investigations and reports.
 
-The system also includes a genuine **IBM Bob integration through Model Context Protocol (MCP)**. Bob can retrieve live ThreatLens incident evidence and use it during investigation rather than being included only as a project label.
+The system also includes a genuine **IBM Bob integration through Model Context Protocol (MCP)**. Bob can retrieve live ThreatForge incident evidence and use it during investigation rather than being included only as a project label.
 
 ## ✨ Key Features
 
@@ -38,10 +38,11 @@ The system also includes a genuine **IBM Bob integration through Model Context P
 * **Evidence-first investigation** — Build a timeline with indicators, evidence, rationale, confidence and response actions.
 * **BLUF reporting** — Produce a concise commander-level summary of the situation and recommended actions.
 * **IBM Bob + MCP** — Expose live security context to IBM Bob through read-only MCP tools.
+* **Incident notifications** — Deliver the correlated incident as one email/mobile notification package for eligible HIGH/CRITICAL incidents, with deduplication and escalation support.
 * **Attack simulation** — Generate a realistic multi-source attack sequence for demonstrations and testing.
 * **Dynamic SOC dashboard** — Dashboard, alerts, incidents, reports and intelligence views are driven by backend APIs rather than hardcoded incident data.
 
-## 🧠 IBM Bob Integration
+## 🧠 AI Investigation + IBM Bob MCP Integration
 
 IBM Bob is integrated as an investigation assistant through MCP.
 
@@ -66,9 +67,9 @@ The MCP server exposes read-only tools:
 The workflow is:
 
 ```text
-Live ThreatLens Incident
+Live ThreatForge Incident
         ↓
-ThreatLens REST API
+ThreatForge REST API
         ↓
 Local MCP Server
         ↓
@@ -82,7 +83,7 @@ Investigation / BLUF / Actions
 Example Bob investigation prompt:
 
 ```text
-Investigate INC-001 using the ThreatLens incident, correlated alerts,
+Investigate INC-001 using the ThreatForge incident, correlated alerts,
 MITRE coverage and investigation tools. Explain the evidence, assess
 whether this is a genuine threat, and produce a concise commander BLUF
 with recommended actions.
@@ -223,7 +224,7 @@ Open the Vite URL displayed in the terminal.
 
 ### 4\. Run the demo
 
-1. Open the ThreatLens Dashboard.
+1. Open the ThreatForge Dashboard.
 2. Select **Simulate Multi-Source Attack**.
 3. Confirm that new alerts are ingested.
 4. Confirm that a new correlated incident is created.
@@ -237,7 +238,7 @@ Open the Vite URL displayed in the terminal.
 
 Start the FastAPI backend first. The project-level `.bob/mcp.json` registers the local MCP server over STDIO.
 
-Then enable the ThreatLens MCP server in IBM Bob and use the investigation tools with a live incident.
+Then enable the ThreatForge MCP server in IBM Bob and use the investigation tools with a live incident.
 
 See [`src/backend/MCP-README.md`](src/backend/MCP-README.md).
 
@@ -289,16 +290,16 @@ The development build was validated with the backend test suite and API smoke te
 * The hackathon demonstration uses simulated security alert data rather than classified production feeds.
 * SQLite is suitable for the local demo; production deployment would use a hardened multi-user database.
 * The application supports analyst decision-making; operational response still requires human validation.
-* IBM Bob/MCP integration depends on the local Bob configuration and a running ThreatLens backend.
+* IBM Bob/MCP integration depends on the local Bob configuration and a running ThreatForge backend.
 * Production authentication, access control and deployment hardening would require additional work.
 
 ## 🏅 What We're Most Proud Of
 
-ThreatLens AI closes the loop from:
+ThreatForge closes the loop from:
 
 **Alert Ingestion → Correlation → Prioritisation → MITRE Context → Evidence-backed Investigation → BLUF → Recommended Actions**
 
-Our strongest differentiator is the genuine **IBM Bob MCP integration**. Bob can access structured, live ThreatLens security context through dedicated investigation tools, making the integration functional and useful for the core analyst workflow rather than simply naming IBM Bob in the project.
+Our strongest differentiator is the genuine **IBM Bob MCP integration**. Bob can access structured, live ThreatForge security context through dedicated investigation tools, making the integration functional and useful for the core analyst workflow rather than simply naming IBM Bob in the project.
 
 
 
@@ -307,3 +308,7 @@ Our strongest differentiator is the genuine **IBM Bob MCP integration**. Bob can
 ## Live ML Feed Demo
 
 The dashboard can run a simulated live feed when no external SIEM/EDR connection is available. With **LIVE · ON**, it calls `POST /api/v1/demo/live-tick` every 6 seconds. Each tick generates events from SIEM, EDR, Network Sensor and Threat Intel, runs ML inference for every incoming alert, correlates related events, and refreshes dashboard statistics. This is simulated data for demonstration; real integrations can use the existing `/api/v1/alerts/ingest` endpoint.
+
+## Final evaluator build
+
+See **DEMO-RUNBOOK.md** for the recommended judging flow and **FINAL-CHANGES.md** for the final engineering changes. Windows users can also use `START-BACKEND.bat` and `START-FRONTEND.bat`.
